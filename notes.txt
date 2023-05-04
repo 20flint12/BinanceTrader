@@ -1,0 +1,2 @@
+
+source venv310/local/bin/activate
