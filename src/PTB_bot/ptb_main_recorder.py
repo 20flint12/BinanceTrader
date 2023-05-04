@@ -274,7 +274,7 @@ def main() -> None:
         token = "1261633346:AAHC4ctXxjZ4hdATaP_Of0608Ju7lIn5sxE"  # @FlintSmart_bot
         persist_filepath = "ptb_main_recorder_dev"
     else:
-        token = "1796700435:AAG_RgjpPYOedk8iFzgN7DXZ0tYcwU39LvQ"  # @InspectorBiblyka_bot
+        token = "1207351455:AAH2SXGwOfkHRbzqr7ISJ25nm-N9QgOs3Vo"  # @FlintDebug_bot
         persist_filepath = "ptb_main_recorder_prod"
     persistence = PicklePersistence(filepath=persist_filepath)
     application = Application.builder().token(token).persistence(persistence).build()
@@ -301,9 +301,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-
-    # geo_name = 'Mragowo'
-    # local_unaware_datetime = datetime.now()
-    # observer_obj = geo.Observer(geo_name=geo_name, in_unaware_datetime=local_unaware_datetime)
 
     main()
