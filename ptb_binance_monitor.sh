@@ -2,12 +2,13 @@
 
 # chmod +x ./ptb_binance_monitor.sh
 
-echo "--- open session ---"
+echo "--- attach session ---"
 #tmux new -s ptb_binance_monitor
 #tmux a -t ptb_binance_monitor
+tmux attach-session -t ptb_binance_monitor
 
 # You are in the root ...
-# cd BinanceTrader
+cd /home/ubuntu/BinanceTrader
 
 echo "--- update repo ---"
 git fetch
