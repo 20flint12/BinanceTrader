@@ -236,7 +236,7 @@ def plot_binance(file_name="photo_name", force_plot=False):
         # plt.title(f"Rate of {symbol}")
         # plt.legend()
 
-        plt.show()
+        # plt.show()
 
     return send_image, text
 
