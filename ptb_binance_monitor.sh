@@ -3,6 +3,13 @@
 cd /home/ubuntu/BinanceTrader
 read
 
+if [[ -n "$TMUX" ]]; then
+  echo "You are currently in a tmux session."
+else
+  echo "You are not currently in a tmux session."
+fi
+read
+
 echo "--- attach session ---"
 tmux attach-session -t ptb_binance_monitor
 read
