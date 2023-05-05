@@ -3,7 +3,7 @@
 # chmod +x ./ptb_binance_monitor.sh
 
 echo "--- open session ---"
-tmux new -s ptb_binance_monitor
+#tmux new -s ptb_binance_monitor
 #tmux a -t ptb_binance_monitor
 
 # You are in the root ...
