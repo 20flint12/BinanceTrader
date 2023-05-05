@@ -8,11 +8,11 @@ tmux attach-session -t ptb_binance_monitor
 # You are in the root ...
 cd /home/ubuntu/BinanceTrader
 
-echo "--- update repo ---"
-git reset --hard origin/develop
-git fetch
-git switch develop
-git pull origin develop
+#echo "--- update repo ---"
+#git reset --hard origin/develop
+#git fetch
+#git switch develop
+#git pull origin develop
 
 echo "--- run env ---"
 source venv310/local/bin/activate
