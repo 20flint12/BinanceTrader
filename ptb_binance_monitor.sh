@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# chmod +x ./ptb_binance_monitor.sh
-
 echo "--- attach session ---"
 #tmux new -s ptb_binance_monitor
 #tmux a -t ptb_binance_monitor
