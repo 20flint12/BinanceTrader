@@ -11,3 +11,5 @@ source venv310/local/bin/activate
 echo "--- run python script ---"
 python -m src.PTB_bot.ptb_binance_monitor
 
+
+
