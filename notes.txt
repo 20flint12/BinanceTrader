@@ -1,8 +1,7 @@
 
 source venv310/local/bin/activate
 
-
-python -m src.PTB_bot.ptb_main_recorder
+python -m src.PTB_bot.ptb_binance_monitor
 
 
 tmux new -s ptb_binance_monitor
