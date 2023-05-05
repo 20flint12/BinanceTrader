@@ -9,6 +9,7 @@ tmux attach-session -t ptb_binance_monitor
 cd /home/ubuntu/BinanceTrader
 
 echo "--- update repo ---"
+git reset --hard origin/develop
 git fetch
 git switch develop
 git pull origin develop
