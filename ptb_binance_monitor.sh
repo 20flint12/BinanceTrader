@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /home/ubuntu/BinanceTrader
+
 echo "--- attach session ---"
 #tmux new -s ptb_binance_monitor
 #tmux a -t ptb_binance_monitor
