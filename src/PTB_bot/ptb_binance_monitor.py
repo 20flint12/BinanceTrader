@@ -272,10 +272,10 @@ def main() -> None:
     """
     if hostname == "DELL-DEV":
         token = "1261633346:AAHC4ctXxjZ4hdATaP_Of0608Ju7lIn5sxE"  # @FlintSmart_bot
-        persist_filepath = "ptb_main_recorder_dev"
+        persist_filepath = "ptb_binance_monitor_dev"
     else:
         token = "1207351455:AAH2SXGwOfkHRbzqr7ISJ25nm-N9QgOs3Vo"  # @FlintDebug_bot
-        persist_filepath = "ptb_main_recorder_prod"
+        persist_filepath = "ptb_binance_monitor_prod"
     persistence = PicklePersistence(filepath=persist_filepath)
     application = Application.builder().token(token).persistence(persistence).build()
 
