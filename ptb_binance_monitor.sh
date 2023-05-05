@@ -7,12 +7,11 @@ if [[ -n "$TMUX" ]]; then
   echo "You are currently in a tmux session."
 else
   echo "You are not currently in a tmux session."
+  echo "--- attach session ---"
+  tmux attach-session -t ptb_binance_monitor
 fi
 read
 
-echo "--- attach session ---"
-tmux attach-session -t ptb_binance_monitor
-read
 
 # You are in the root ...
 cd /home/ubuntu/BinanceTrader
