@@ -1,6 +1,15 @@
 #!/bin/bash
 
-cd /home/ubuntu/BinanceTrader
+#cd /home/ubuntu/BinanceTrader
+#read
+
+tmux send-keys -t ptb_binance_monitor "cd /home/ubuntu/BinanceTrader" C-m
+
+echo "--- run env ---"
+tmux send-keys -t ptb_binance_monitor "source venv310/local/bin/activate" C-m
+
+echo "--- run python script ---"
+tmux send-keys -t ptb_binance_monitor "python -m src.PTB_bot.ptb_binance_monitor" C-m
 read
 
 if [[ -n "$TMUX" ]]; then
@@ -10,14 +19,4 @@ else
   echo "--- attach session ---"
   tmux attach-session -t ptb_binance_monitor
 fi
-read
-
-tmux send-keys -t ptb_binance_monitor "cd /home/ubuntu/BinanceTrader" C-m
-
-echo "--- run env ---"
-tmux send-keys -t ptb_binance_monitor "source venv310/local/bin/activate" C-m
-
-echo "--- run python script ---"
-tmux send-keys -t ptb_binance_monitor "python -m src.PTB_bot.ptb_binance_monitor" C-m
-
 
