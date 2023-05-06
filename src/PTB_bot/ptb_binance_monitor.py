@@ -156,7 +156,7 @@ async def callback_repeating(context: ContextTypes.DEFAULT_TYPE):
 
 
 async def set_repeat_timer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Add a job to the queue."""
+    """Add a job_rep to the queue."""
     chat_id = update.effective_message.chat_id
     job_name = str(chat_id) + "#REP"
     text = ""
@@ -171,8 +171,15 @@ async def set_repeat_timer(update: Update, context: ContextTypes.DEFAULT_TYPE) -
         if job_removed:
             text += " Old one was removed.\n"
 
-        job = context.job_queue.run_repeating(callback_repeating, interval=due, name=job_name, chat_id=chat_id, first=10)
-        text += str(job.name) + " timer successfully set."
+        job_rep = context.job_queue.run_repeating(
+            callback_repeating,
+            interval=due,
+            name=job_name,
+            user_id=chat_id,
+            chat_id=chat_id,
+            first=10)
+        job_rep.job.misfire_grace_time = 300
+        text += str(job_rep.name) + " timer successfully set."
         await update.effective_message.reply_text(text)
 
     except (IndexError, ValueError):

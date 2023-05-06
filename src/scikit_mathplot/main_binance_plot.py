@@ -238,6 +238,9 @@ def plot_binance(file_name="photo_name", force_plot=False):
 
         # plt.show()
 
+        # Free memory by closing all figures
+        plt.close('all')
+
     return send_image, text
 
 
