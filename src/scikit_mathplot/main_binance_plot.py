@@ -53,6 +53,8 @@ def get_klines(symbol="BTCUSDT", kline_interval=Client.KLINE_INTERVAL_15MINUTE, 
 
     klines = client.get_historical_klines(symbol, kline_interval, interval)   # "1 day ago UTC" 24 hour ago UTC
 
+    del client
+
     # timestamps = [entry[0] / 1000 for entry in klines]
     timestamps = [datetime.fromtimestamp(entry[0] / 1000) for entry in klines]
     dates = [mdates.date2num(timestamp) for timestamp in timestamps]
@@ -230,11 +232,6 @@ def plot_binance(file_name="photo_name", force_plot=False):
         # ***********************************************************************
         res_savefig = plt.savefig(file_name)
         print("res_savefig=", res_savefig)
-
-        # plt.xlabel("Time")
-        # plt.ylabel("Rate (USDT)")
-        # plt.title(f"Rate of {symbol}")
-        # plt.legend()
 
         # plt.show()
 
