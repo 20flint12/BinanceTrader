@@ -12,9 +12,6 @@ from datetime import datetime
 # import src.boto3_package.mainDB_spaceweather as msw
 import src.scikit_mathplot.main_binance_plot as smb
 
-import socket
-hostname = socket.gethostname()     # DELL-DEV
-print(hostname)
 
 """
 Simple Bot to send timed Telegram messages.
@@ -36,6 +33,10 @@ To use arbitrary callback data, you must install ptb via
 `pip install python-telegram-bot[callback-data]`
 """
 
+
+import socket
+import os
+
 import logging
 
 from telegram import __version__ as TG_VER
@@ -51,7 +52,7 @@ if __version_info__ < (20, 0, 0, "alpha", 1):
         f"{TG_VER} version of this example, "
         f"visit https://docs.python-telegram-bot.org/en/v{TG_VER}/examples.html"
     )
-from telegram import  Update
+from telegram import Update, Bot
 from telegram.ext import (
     Application,
     CommandHandler,
@@ -277,14 +278,28 @@ def main() -> None:
     """
     Start the bot.
     """
+    hostname = socket.gethostname()  # DELL-DEV
+
+    filename = os.path.basename(__file__)
+    name_without_extension = os.path.splitext(filename)[0]
+
     if hostname == "DELL-DEV":
         token = "1261633346:AAHC4ctXxjZ4hdATaP_Of0608Ju7lIn5sxE"  # @FlintSmart_bot
-        persist_filepath = "ptb_binance_monitor_dev"
+        botname = "@FlintSmart_bot"
+        persist_filepath = name_without_extension + "_DEV"
     else:
         token = "1207351455:AAH2SXGwOfkHRbzqr7ISJ25nm-N9QgOs3Vo"  # @FlintDebug_bot
-        persist_filepath = "ptb_binance_monitor_prod"
+        botname = "@FlintDebug_bot"
+        persist_filepath = name_without_extension + "_PROD"
+
+    print(hostname, " - ", botname, " - ",  persist_filepath)
+
     persistence = PicklePersistence(filepath=persist_filepath)
     application = Application.builder().token(token).persistence(persistence).build()
+
+    # Get the bot name
+    # bot_name = application.bot.name
+    # print(bot_name)
 
     # on different commands - answer in Telegram
     application.add_handler(CommandHandler(["start", "help"], start))
